@@ -3,6 +3,9 @@ import sys
 input = sys.stdin.readline
 print = sys.stdout.write
 
+def println(s):
+    sys.stdout.write(s + "\n")
+
 # sys.stdin.readline()
 # 개행문자(\n)를 포함한 문자열 한 줄만 입력됨
 foo = sys.stdin.readline()

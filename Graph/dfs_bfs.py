@@ -1,15 +1,15 @@
 graph = dict()
 
 graph[1] = [2, 5, 9]
-graph[2] = [3]
-graph[3] = [4]
-graph[4] = []
-graph[5] = [6, 8]
-graph[6] = [7]
-graph[7] = []
-graph[8] = []
-graph[9] = [10]
-graph[10] = []
+graph[2] = [1, 3]
+graph[3] = [2, 4]
+graph[4] = [3]
+graph[5] = [1, 6, 8]
+graph[6] = [5, 7]
+graph[7] = [6]
+graph[8] = [5]
+graph[9] = [1, 10]
+graph[10] = [9]
 
 
 def recursive_dfs(v, discovered=[]):

@@ -1,15 +1,17 @@
 memo = dict()
 
 
-def dp(i, j):
+def dp_memo(i, j):
     if (i, j) in memo:
         return memo[(i, j)]
     memo[(i, j)] = ...
 
     return memo[(i, j)]
 
-# n = int(input())
-# dp = [0] * (n + 1)
+
+n = int(input())
+dp = [0] * (n + 1)
+
 
 # bottom-up
 def fibo_tabulation(n):
@@ -20,13 +22,14 @@ def fibo_tabulation(n):
         dp[i] = dp[i - 1] + dp[i - 2]
     return dp[n]
 
+
 # top-down
 def fibo_memoization(n):
     if n <= 1:
         return n
-    
+
     if dp[n]:
         return dp[n]
-    
-    dp[n] = fibo_memoization(n - 1) + fibo_memoization(n-2)
+
+    dp[n] = fibo_memoization(n - 1) + fibo_memoization(n - 2)
     return dp[n]

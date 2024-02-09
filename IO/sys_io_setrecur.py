@@ -3,10 +3,11 @@ import sys
 input = sys.stdin.readline
 print = sys.stdout.write
 
+# 파이썬의 기본 재귀호출 제한은 1000회이므로 재귀를 활용하여 풀 경우 다음과 같이 설정
+sys.setrecursionlimit(10 ** 6)
 
 def println(s):
     sys.stdout.write(str(s) + "\n")
-
 
 # sys.stdin.readline()
 # 개행문자(\n)를 포함한 문자열 한 줄만 입력됨

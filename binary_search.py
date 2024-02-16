@@ -1,4 +1,4 @@
-def binary_search (arr, val):
+def binary_search(arr, val):
     start, end = 0, len(arr) - 1
     while start <= end:
         mid = (start + end) // 2

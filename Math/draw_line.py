@@ -7,6 +7,8 @@ def set_pixel(x, y): ...
 # Digital Differential Analyzer, 디지털 차분 분석기 알고리즘
 def DDA(x0, y0, x_end, y_end):
     # x0 != x_end 또는 y0 != y_end 이라고 가정
+    assert x0 != x_end or y0 != y_end
+
     dx = x_end - x0
     dy = y_end - y0
     x = x0
@@ -63,20 +65,17 @@ def bresenham(x0, y0, x1, y1):
 # 선분의 기울기가 0과 1 사이인 경우의 Bresenham 알고리즘
 def bresenham_line_with_slope_between_zero_and_one(xl, yl, xr, yr):
     y = yl
-    W = xr - xl
     H = yr - yl
+    W = xr - xl
 
     F = 2 * H - W
-    dF1 = 2 * H
-    dF2 = 2 * (H - W)
-
     for x in range(xl, xr + 1):
         set_pixel(x, y)
         if F < 0:
-            F += dF1
+            F += 2 * H
         else:
             y += 1
-            F += dF2
+            F += 2 * (H - W)
 
 
 # Bresenham 중간점 원 알고리즘
@@ -91,6 +90,8 @@ def bresenham_circle(xc, yc, r):
         set_pixel(xc + y, yc - x)
         set_pixel(xc - y, yc - x)
 
+    # F의 초깃값의 정확한 계산식은 원래 1.25 - r 이며, 이를 1 - r로 근사하여
+    # r이 정수인 경우엔 정수 연산만 하게끔 구현함
     F = 1 - r
     x = 0
     y = r

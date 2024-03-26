@@ -19,8 +19,8 @@ def rounding_half_up(num):
         return int(num) + 1
     return int(num)
 
-# deicmal 모듈 사용
+# deicmal 모듈에서 사사오입 사용
 from decimal import Decimal, ROUND_HALF_UP
 
-def custom_round(num):
+def custom_round_half_up(num):
     return Decimal(num).quantize(Decimal('1'), rounding=ROUND_HALF_UP)

@@ -3,6 +3,7 @@ using namespace std;
 
 int T;
 string a, b, s, d;
+
 int main() {
   /* std::getline() */
   cin >> T;

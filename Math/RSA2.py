@@ -8,8 +8,7 @@ e = 13
 p = 43
 q = 59
 phi_n = (p - 1) * (q - 1)
-# d = mod_inverse(e, phi_n)
-d = 937
+d = mod_inverse(e, phi_n)
 
 
 def encrypt(plain_text, n, e):

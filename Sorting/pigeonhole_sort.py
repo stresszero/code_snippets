@@ -16,3 +16,7 @@ def pigeonhole_sort(arr):
             i += 1
 
     return arr
+
+
+arr = [8, 3, 2, 7, 4, 6, 8]
+print(pigeonhole_sort(arr))

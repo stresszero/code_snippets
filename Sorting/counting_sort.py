@@ -11,3 +11,7 @@ def counting_sort(arr):
         sorted_arr += [i + min_val] * count_arr[i]
 
     return sorted_arr
+
+
+arr = [8, 3, 2, 7, 4, 6, 8]
+print(counting_sort(arr))

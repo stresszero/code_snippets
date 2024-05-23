@@ -1,4 +1,4 @@
-# 주어진 순열 arr의 다음 순열을 반환하는 함수, 마지막 순열이면 -1 반환
+# 주어진 순열 arr의 다음 순열을 반환하는 함수, arr이 마지막 순열이면 -1 반환
 def next_permutation(arr):
     n = len(arr)
     i = n - 1
@@ -16,7 +16,7 @@ def next_permutation(arr):
     arr[i:] = arr[i:][::-1]
     return arr
 
-# 이전 수열을 반환하는 함수
+# 이전 순열을 반환하는 함수
 def prev_permutation(arr):
     n = len(arr)
     i = n - 1

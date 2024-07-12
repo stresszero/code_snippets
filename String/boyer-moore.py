@@ -11,7 +11,6 @@ def bad_char(pat, alphabet):
 
 def good_suffix(pat):
     m = len(pat)
-
     rev_F = prep_KMP(pat[::-1])
     good_suffix = [m - 1 - rev_F[m - 1]] * (m + 1)
 
@@ -45,4 +44,4 @@ def boyer_moore(text, pat, alphabet):
 
 print(bad_char("ababcab", ["a", "b", "c", "d"]))
 print(good_suffix("ababcab"))  # [5, 5, 5, 5, 5, 3, 3, 1]
-print(boyer_moore("abababcababcaba", "ababcab", ["a", "b", "c", "d"])) # [2, 9] 
+print(boyer_moore("abababcababcaba", "ababcab", ["a", "b", "c", "d"]))  # [2, 9]

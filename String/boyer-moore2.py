@@ -1,4 +1,5 @@
 from typing import *
+
 # This version is sensitive to the English alphabet in ASCII for case-insensitive matching.
 # To remove this feature, define alphabet_index as ord(c), and replace instances of "26"
 # with "256" or any maximum code-point you want. For Unicode you may want to match in UTF-8
@@ -6,11 +7,13 @@ from typing import *
 
 ALPHABET_SIZE = 26
 
+
 def alphabet_index(c: str) -> int:
     """Return the index of the given character in the English alphabet, counting from 0."""
     val = ord(c.lower()) - ord("a")
     assert val >= 0 and val < ALPHABET_SIZE
     return val
+
 
 def match_length(S: str, idx1: int, idx2: int) -> int:
     """Return the length of the match of the substrings of S beginning at idx1 and idx2."""
@@ -22,6 +25,7 @@ def match_length(S: str, idx1: int, idx2: int) -> int:
         idx1 += 1
         idx2 += 1
     return match_count
+
 
 def fundamental_preprocess(S: str) -> list[int]:
     """Return Z, the Fundamental Preprocessing of S.
@@ -59,6 +63,7 @@ def fundamental_preprocess(S: str) -> list[int]:
                 r = i + z[i] - 1
     return z
 
+
 def bad_character_table(S: str) -> list[list[int]]:
     """
     Generates R for S, which is an array indexed by the position of some character c in the
@@ -77,6 +82,7 @@ def bad_character_table(S: str) -> list[list[int]]:
         for j, a in enumerate(alpha):
             R[j].append(a)
     return R
+
 
 def good_suffix_table(S: str) -> list[int]:
     """
@@ -98,6 +104,7 @@ def good_suffix_table(S: str) -> list[int]:
             L[i] = j
     return L
 
+
 def full_shift_table(S: str) -> list[int]:
     """
     Generates F for S, an array used in a special case of the good-suffix rule in the Boyer-Moore
@@ -112,6 +119,7 @@ def full_shift_table(S: str) -> list[int]:
         longest = max(zv, longest) if zv == i + 1 else longest
         F[-i - 1] = longest
     return F
+
 
 def string_search(P, T) -> list[int]:
     """
@@ -131,12 +139,14 @@ def string_search(P, T) -> list[int]:
     L = good_suffix_table(P)
     F = full_shift_table(P)
 
-    k = len(P) - 1      # Represents alignment of end of P relative to T
-    previous_k = -1     # Represents alignment in previous phase (Galil's rule)
+    k = len(P) - 1  # Represents alignment of end of P relative to T
+    previous_k = -1  # Represents alignment in previous phase (Galil's rule)
     while k < len(T):
         i = len(P) - 1  # Character to compare in P
-        h = k           # Character to compare in T
-        while i >= 0 and h > previous_k and P[i] == T[h]:  # Matches starting from end of P
+        h = k  # Character to compare in T
+        while (
+            i >= 0 and h > previous_k and P[i] == T[h]
+        ):  # Matches starting from end of P
             i -= 1
             h -= 1
         if i == -1 or h == previous_k:  # Match has been found (Galil's rule)
@@ -148,9 +158,12 @@ def string_search(P, T) -> list[int]:
                 suffix_shift = 1
             elif L[i + 1] == -1:  # Matched suffix does not appear anywhere in P
                 suffix_shift = len(P) - F[i + 1]
-            else:               # Matched suffix appears in P
+            else:  # Matched suffix appears in P
                 suffix_shift = len(P) - 1 - L[i + 1]
             shift = max(char_shift, suffix_shift)
             previous_k = k if shift >= i + 1 else previous_k  # Galil's rule
             k += shift
     return matches
+
+
+print(string_search("aabaa", "aabaabaaa"))

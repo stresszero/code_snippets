@@ -1,6 +1,7 @@
 def merge_sort(arr):
     def merge(b, c):
         i = j = k = 0
+        
         while (i < len(b)) and (j < len(c)):
             if b[i] < c[j]:
                 arr[k] = b[i]

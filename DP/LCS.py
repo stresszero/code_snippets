@@ -1,4 +1,4 @@
-# 최장 공통 부분 수열(Long Common Subsequence)
+# 최장 공통 부분 수열(Long Common Subsequence)의 길이를 구하는 함수
 def get_LCS_length_arr(x, y):
     n = len(x)
     m = len(y)
@@ -14,11 +14,12 @@ def get_LCS_length_arr(x, y):
     return LCS
 
 
+# LCS 길이 배열을 통해 문자열을 반환하는 함수
 def get_LCS(x, y):
     i = len(x)
     j = len(y)
-    LCS = get_LCS_length_arr(x, y)
-    idx = LCS[i][j]
+    LCS_length_arr = get_LCS_length_arr(x, y)
+    idx = LCS_length_arr[i][j]
 
     result = [""] * (idx + 1)
     while idx > 0:
@@ -27,7 +28,7 @@ def get_LCS(x, y):
             i -= 1
             j -= 1
             idx -= 1
-        elif LCS[i][j - 1] > LCS[i - 1][j]:
+        elif LCS_length_arr[i][j - 1] > LCS_length_arr[i - 1][j]:
             j -= 1
         else:
             i -= 1

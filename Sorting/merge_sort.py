@@ -31,3 +31,7 @@ def merge_sort(arr):
 
     _merge_sort(arr)
     return arr
+
+
+arr = [32, 27, 68, 1, 34, 6, 8, 2, 1, 7]
+print(merge_sort(arr))

@@ -1,16 +1,9 @@
 def RSA_encrypt(plain, e, n):
-    cipher = []
-    for c in plain:
-        cipher.append(str(pow(ord(c), e, n)).zfill(4))
-    return cipher
+    return " ".join(str(pow(ord(c), e, n)) for c in plain)
 
 
 def RSA_decrypt(cipher, d, n):
-    plain = ""
-    for c in cipher:
-        plain += chr(pow(int(c), d, n))
-    return plain
-
+    return "".join(chr(pow(int(c), d, n)) for c in cipher.split())
 
 n = 2537  # (소인수 분해가 어렵도록 충분히 큰) 두 소수의 곱 (43 * 59)
 e = 13  # (p-1) * (q-1)과 서로소인 수

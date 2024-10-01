@@ -1,6 +1,6 @@
 number = int(input("Enter a number: "))
 base = int(input("Enter base: "))
-digits = "0123456789abcdef"
+digits = "0123456789abcdefghijklmnopqrstuvwxyz"
 result = ""
 
 while number > 0:

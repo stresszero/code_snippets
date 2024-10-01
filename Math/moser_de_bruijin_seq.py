@@ -1,14 +1,19 @@
-def make_moser_de_bruijn_seq(N):
-    if N < 1:
-        return None
+"""
+Moser–de Bruijn sequence
 
-    dp = [0] * (2**N)
-    dp[0] = 0
-    dp[1] = 1
+0, 1, 4, 5, 16, 17, 20, 21, 64, 65,
+"""
 
-    for i in range(2, 2**N):
-        if i % 2 == 0:
-            dp[i] = 4 * dp[i // 2]
-        else:
-            dp[i] = 4 * dp[i // 2] + 1
-    return dp
+def moser_de_bruijn(n):
+    return int(bin(n)[2:], 4)
+
+
+def rec_moser_de_bruijn(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    elif n % 2 == 0:
+        return 4 * rec_moser_de_bruijn(n // 2)
+    else:
+        return 4 * rec_moser_de_bruijn(n // 2) + 1

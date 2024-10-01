@@ -1,3 +1,6 @@
+import math
+
+
 def fibo_recursion(n):
     if n <= 1:
         return n
@@ -24,3 +27,11 @@ def fibo_swap(n):
     for i in range(n):
         x, y = y, x + y
     return x
+
+
+def fibonacci_formula(n):
+    sqrt_5 = math.sqrt(5)
+    phi = (1 + sqrt_5) / 2
+    psi = (1 - sqrt_5) / 2
+    return int((1 / sqrt_5) * (phi**n - psi**n))
+

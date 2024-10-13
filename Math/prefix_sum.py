@@ -15,3 +15,10 @@ sum_arr[0] = nums[0]
 for i in range(1, N):
     sum_arr[i] = sum_arr[i - 1] + nums[i]
 print(sum_arr)
+
+# suffix sum
+sum_arr = [0] * N
+sum_arr[N - 1] = nums[N - 1]
+for i in range(N - 2, -1, -1):
+    sum_arr[i] = sum_arr[i + 1] + nums[i]
+print(sum_arr)

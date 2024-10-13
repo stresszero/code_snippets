@@ -1,8 +1,9 @@
 """
-Moser–de Bruijn sequence
+Moser-de Bruijn sequence
 
-0, 1, 4, 5, 16, 17, 20, 21, 64, 65,
+0, 1, 4, 5, 16, 17, 20, 21, 64, 65, ...
 """
+
 
 def moser_de_bruijn(n):
     return int(bin(n)[2:], 4)

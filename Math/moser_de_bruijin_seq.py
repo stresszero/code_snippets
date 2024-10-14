@@ -10,10 +10,8 @@ def moser_de_bruijn(n):
 
 
 def rec_moser_de_bruijn(n):
-    if n == 0:
-        return 0
-    elif n == 1:
-        return 1
+    if n in (0, 1):
+        return n
     elif n % 2 == 0:
         return 4 * rec_moser_de_bruijn(n // 2)
     else:

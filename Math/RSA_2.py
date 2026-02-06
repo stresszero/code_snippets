@@ -24,10 +24,11 @@ def RSA_decrypt(cipher, d, n):
     
     # 모든 문자를 결합하여 원본 평문 반환
     plain_text = "".join(decrypted_characters)
-    
     return plain_text
-    
-n = 2537  # (소인수 분해가 어렵도록 충분히 큰) 두 소수의 곱 (43 * 59)
+
+p = 43
+q = 59
+n = p * q  # (소인수 분해가 어렵도록 충분히 큰) 두 소수 p와 q의 곱 
 e = 13  # (p-1) * (q-1)과 서로소인 수
 public_key = (n, e)  # 공개키
 private_key = 937  # 개인키

@@ -1,3 +1,6 @@
+"""
+Strongly Connected Component
+"""
 from collections import defaultdict
 
 

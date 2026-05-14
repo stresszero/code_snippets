@@ -1,6 +1,10 @@
 def bucket_sort(arr):
+    if not arr:
+        return []
     min_val = min(arr)
     max_val = max(arr)
+    if max_val == min_val:
+        return list(arr)
     bucket_range = (max_val - min_val) / len(arr)
     bucket = [[] for _ in range(len(arr) + 1)]
     sorted_arr = []

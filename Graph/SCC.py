@@ -17,7 +17,7 @@ class Graph:
         for i in self.graph[v]:
             if not visited[i]:
                 self._dfs(i, visited, stack)
-        stack = stack.append(v)
+        stack.append(v)
 
     def _transpose(self):
         g = Graph(self.V)

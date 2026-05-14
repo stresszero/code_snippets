@@ -1,10 +1,10 @@
 memo = dict()
 
 
-def dp_memo(i, j):
+def dp_memoization_concept(i, j):
     if (i, j) in memo:
         return memo[(i, j)]
-    memo[(i, j)] = ...
+    memo[(i, j)] = ... # 점화식 계산 결과를 저장
 
     return memo[(i, j)]
 
